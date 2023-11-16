@@ -1,0 +1,46 @@
+for testing API 
+
+Test add book (UserName=user, password=password)
+http://localhost:8080/userAPI/addBook
+
+{
+  "isbn":"1",
+  "title": "random",
+  "year": 2023,
+  "price": 1,
+  "genre": "Fiction",
+  "authorDTO": [
+    {
+      "authorName": "mingyuan",
+      "birthday": "1990-05-15"
+    }
+  ]
+}
+
+test update Book (UserName=user, password=password)
+http://localhost:8080/userAPI/updateBooks/1
+
+{
+  "isbn": "1",
+  "title": "CMY",
+  "year": 2023,
+  "price": 19.99,
+  "genre": "Fiction",
+  "authorDTO": [
+    {
+      "authorName": "CXY",
+      "birthday": "2024-05-15"
+    },
+    {
+      "authorName": "John Doe",
+      "birthday": "1990-05-15"
+
+    }
+  ]
+}
+
+test get with author Name or Title (UserName=user, password=password)
+http://localhost:8080/userAPI/getBooks?title=CMY&authorName=John%20Doe
+
+test delete api (UserName=admin, password=admin)
+http://localhost:8080/userAPI/deleteBooks/1
