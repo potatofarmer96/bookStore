@@ -1,0 +1,27 @@
+-- Create a new database with the name 'bookstore_db'
+CREATE DATABASE bookstore_db;
+
+-- Use the newly created database
+USE bookstore_db;
+
+CREATE TABLE authors (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  author_name VARCHAR(255) NOT NULL,
+  birthday DATE
+);
+
+CREATE TABLE books (
+  isbn VARCHAR(13) PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  year INT,
+  price DECIMAL(10, 2),
+  genre VARCHAR(255)
+);
+
+CREATE TABLE book_authors (
+  book_isbn VARCHAR(13),
+  author_id INT,
+  PRIMARY KEY (book_isbn, author_id),
+  FOREIGN KEY (book_isbn) REFERENCES books(isbn),
+  FOREIGN KEY (author_id) REFERENCES authors(id)
+);
